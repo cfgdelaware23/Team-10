@@ -1,16 +1,28 @@
 from django.shortcuts import render
-from .forms import BookingForm
-from .models import Menu
+from .forms import VolunteerForm, EventsForm
+from .models import Events, Volunteer
 
 # Create your views here.
 def index(request):
-    pass
+    return render(request, 'index.html')
 
-def events(request):
-    pass
+def display_events(request):
+    return render(request, 'display_events.html')
 
-def register(request):
-    pass
+def register_events(request):
+    form = VolunteerForm()
+    if request.method == 'POST':
+        form = VolunteerForm(request.POST)
+        if form.is_valid():
+            form.save()
+    context = {'form':form}
+    return render(request, 'register_events.html', context)
 
 def volunteer(request):
-    pass
+    form = VolunteerForm()
+    if request.method == 'POST':
+        form = VolunteerForm(request.POST)
+        if form.is_valid():
+            form.save()
+    context = {'form':form}
+    return render(request, 'register_volunteer.html', context)
