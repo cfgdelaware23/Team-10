@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Volunteer(models.Model):
-    name = models.CharField(max_length=25)
+    name = models.TextField()
     day = models.DateField()
     roles = models.TextField()
 
@@ -14,10 +14,14 @@ class Events(models.Model):
 
     recurring = models.BooleanField()
     day = models.DateField()
-    time = models.DateTimeField()
+    start_time = models.DateTimeField()
+    end_time = models.DateTimeField()
     title = models.TextField()
     account = models.TextField()
     host = models.TextField()
+    moderator = models.TextField()
+    facilitator = models.TextField()
+    broadcaster = models.TextField()
 
     def __str__(self) -> str:
         return f"title: {self.title}, day: {self.day}, time: {self.time}, account: {self.account}"
