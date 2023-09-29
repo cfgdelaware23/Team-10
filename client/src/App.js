@@ -1,5 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
+import 'volunteer.js';
+import 'user.js';
+import 'admin.js';
 
 function App() {
   return (
