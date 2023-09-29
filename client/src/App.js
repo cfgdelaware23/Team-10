@@ -3,6 +3,7 @@ import './App.css';
 import 'volunteer.js';
 import 'user.js';
 import 'admin.js';
+import { Route, Routes } from "react-router-dom";
 
 function App() {
   return (
@@ -21,6 +22,11 @@ function App() {
           Learn React
         </a>
       </header>
+      <Routes>
+        <Route path="user" element={<Users />} />
+        <Route path="volunteer" element={<Volunteers />} />
+        <Route path="admin" element={<Admin />} />
+      </Routes>
     </div>
   );
 }
