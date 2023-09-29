@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <ul id="data"></ul>
+
+    <script>
+        fetch('http://127.0.0.1:5000/api/data')
+            .then(response => response.json())
+            .then(data => {
+                const ul = document.getElementById('data');
+                data.forEach(row => {
+                    const li = document.createElement('li');
+                    li.textContent = JSON.stringify(row);
+                    ul.appendChild(li);
+                });
+            })
+            .catch(error => console.error('Error fetching the data:', error));
+    </script>
+</body>
+</html>
