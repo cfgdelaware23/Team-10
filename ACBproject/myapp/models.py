@@ -33,8 +33,11 @@ class Events(models.Model):
     broadcaster = models.CharField(
         default=None, max_length=255, blank=True, null=True)
     recurring = models.BooleanField(default=None)
-    type_of_event = models.CharField(default=None, max_length=255, choices=[
-                                     ('social', 'social'), ('educational', 'educational')])
+    type_of_event = models.CharField(default=None,
+                                     max_length=255,
+                                     choices=[('social', 'social'),
+                                              ('educational', 'educational')]
+                                     )
 
     def __str__(self) -> str:
         return f"title: {self.title}, account: {self.account}"
