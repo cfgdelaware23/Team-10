@@ -58,6 +58,8 @@ def volunteer(request):
                 #     return HttpResponse("You are already registered for this event.")
                 
                 Registration.objects.create(volunteer=user, event=event)
+                email = "juskeerat@gmail.com"
+                send_email(email)
                 return HttpResponse("Successfully applied for the event!")
             return HttpResponse("Volunteer information saved successfully!")
 
