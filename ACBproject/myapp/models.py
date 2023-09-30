@@ -7,14 +7,8 @@ CHOICES = [
     ('Streamer', 'Streamer'), 
     ('Broadcaster', 'Broadcaster'),
 ]
-class Volunteer(models.Model):
-    name = models.CharField(default=None, max_length=255)
-    day = models.DateField(default=None, max_length=255)
-    roles = models.CharField(choices=CHOICES, default=None, max_length=255)
 
-    def __str__(self) -> str:
-        return f"Name: {self.name}, available day: {self.day}, roles: {self.roles}"
-
+   
 
 class Events(models.Model):
     recurring = models.BooleanField(default=None)
@@ -28,6 +22,26 @@ class Events(models.Model):
     facilitator = models.CharField(default=None, max_length=255, blank=True, null=True)
     streamer = models.CharField(default=None, max_length=255, blank=True, null=True)
     broadcaster = models.CharField(default=None, max_length=255, blank=True, null=True)
+    # registrations = models.ManyToManyField(Volunteer, through='Registration')
 
     def __str__(self) -> str:
-        return f"title: {self.title}, day: {self.day}, time: {self.time}, account: {self.account}"
+        return f"title: {self.title}, account: {self.account}"
+   
+ 
+class Volunteer(models.Model):
+    name = models.CharField(default=None, max_length=255)
+    roles = models.CharField(choices=CHOICES, default=None, max_length=255)
+    email = models.EmailField(max_length=255, default=None)
+    events = models.ManyToManyField(Events)
+
+
+    def __str__(self) -> str:
+        return f"Name: {self.name}, role: {self.roles}" 
+    
+class Registration(models.Model):
+    volunteer = models.ForeignKey(Volunteer, on_delete=models.CASCADE)
+    event = models.ForeignKey(Events, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.volunteer.name} registered for {self.event.day} - {self.event.host}"
+
