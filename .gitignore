@@ -1,0 +1,5 @@
+test.ipynb
+ACBproject/db.sqlite3
+ACBproject/myapp/__pycache__/
+ACBproject/myapp/migrations/__pycache__/
+ACBproject/ACBwebsite/__pycache__/
