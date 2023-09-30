@@ -3,10 +3,12 @@ from django.db import models
 CHOICES = [
     ('Host', 'Host'),
     ('Moderator', 'Moderator'),
-    ('Facilitator', 'Facilitator'), 
-    ('Streamer', 'Streamer'), 
+    ('Facilitator', 'Facilitator'),
+    ('Streamer', 'Streamer'),
     ('Broadcaster', 'Broadcaster'),
 ]
+
+
 class Volunteer(models.Model):
     name = models.CharField(default=None, max_length=255)
     email = models.EmailField(default=None, max_length=255)
@@ -32,11 +34,17 @@ class Events(models.Model):
                                         ('n/a', 'n/a'),
                                         ])
     host = models.CharField(default=None, max_length=255)
-    moderator = models.CharField(default=None, max_length=255, blank=True, null=True)
-    facilitator = models.CharField(default=None, max_length=255, blank=True, null=True)
-    streamer = models.CharField(default=None, max_length=255, blank=True, null=True)
-    broadcaster = models.CharField(default=None, max_length=255, blank=True, null=True)
+    moderator = models.CharField(
+        default=None, max_length=255, blank=True, null=True)
+    facilitator = models.CharField(
+        default=None, max_length=255, blank=True, null=True)
+    streamer = models.CharField(
+        default=None, max_length=255, blank=True, null=True)
+    broadcaster = models.CharField(
+        default=None, max_length=255, blank=True, null=True)
     recurring = models.BooleanField(default=None)
+    type_of_event = models.CharField(default=None, max_length=255, choices=[
+                                     'educational', 'social'])
 
     def __str__(self) -> str:
         return f"title: {self.title}, account: {self.account}"
