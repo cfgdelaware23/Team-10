@@ -6,6 +6,7 @@ from django.http import JsonResponse
 
 # Create your views here.
 
+
 def run_email_script(request):
     if request.method == 'POST':
         # Call the function from script.py
@@ -13,14 +14,19 @@ def run_email_script(request):
         return JsonResponse({'status': 'success', 'message': message})
     else:
         return JsonResponse({'status': 'failed', 'message': 'Not a POST request'})
-    
+
+
 def index(request):
     return render(request, 'index.html')
 
 
 def display_events(request):
     data = Events.objects.all()
-    return render(request, 'display_events.html', {'data': data})
+    social_events = [
+        event for event in data if event.type_of_event == 'social']
+    educational_events = [
+        event for event in data if event.type_of_event == 'educational']
+    return render(request, 'display_events.html', {'data': data}, {'social': social_events}, {'educational': educational_events})
 
 
 def register_events(request):
@@ -48,15 +54,15 @@ def volunteer(request):
                 role = volunteer.roles.lower()
                 setattr(event, role, volunteer.name)
                 event.save()
-                
+
                 # if Volunteer.objects.filter(name=user, email=e).exists():
                 #     print(Volunteer.objects.filter(name=name, email=email).exists())
                 #     return HttpResponse("You are already registered for this event.")
-                
+
                 # if Registration.objects.filter(volunteer=user, event=event).exists():
                 #     print(Registration.objects.filter(volunteer=user, event=event))
                 #     return HttpResponse("You are already registered for this event.")
-                
+
                 Registration.objects.create(volunteer=user, event=event)
                 email = "juskeerat@gmail.com"
                 send_email(email)
@@ -67,6 +73,7 @@ def volunteer(request):
         form = VolunteerForm()
 
     return render(request, 'register_volunteer.html', {'form': form})
+
 
 def home(request):
     return render(request, 'homepage.html')
