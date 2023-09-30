@@ -18,30 +18,35 @@
     <title>ACB</title>
     <style>
         th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
+            border: 1px solid #ccc; /* Lighter border color for a softer look */
+            padding: 10px; /* Slightly increased padding for better spacing */
             text-align: center;
         }
+        
+        /* Styling for Table Headers */
         th {
-            background-color: #f2f2f2;
+            background-color: #f2f2f2; /* Light gray background for headers */
+            border-color: #ccc; /* Matching border color for headers */
+            font-weight: bold; /* Make headers bold for emphasis */
         }
     </style>
 </head>
 <body>
-    <ul class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
-        <li class="nav-link ms-auto">
+    <ul class="navbar cute-navbar">
+        <li class="nav-link">
             <a href="/">Home</a>
         </li>
-        <li class="nav-link me-auto">
+        <li class="nav-link">
             <a href="/events">Events</a>
         </li>
-        <li class="nav-link me-auto">
+        <li class="nav-link">
             <a href="/register">Register</a>
         </li>
-        <li class="nav-link me-auto">
+        <li class="nav-link">
             <a href="/volunteer">Volunteer</a>
         </li>
     </ul>
+    
 
     {% block content %}
 
