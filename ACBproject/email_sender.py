@@ -10,7 +10,7 @@ def send_email():
     context = ssl.create_default_context()
 
     subject = "ACB Update"
-    body = "Here is information about our upcoming event!"
+    body = "Thank you so much for signing up! ACB appreciates you."
     message = f"Subject: {subject}\n\n{body}"
 
     try:
