@@ -10,9 +10,9 @@ def display_events(request):
     return render(request, 'display_events.html')
 
 def register_events(request):
-    form = VolunteerForm()
+    form = EventsForm()
     if request.method == 'POST':
-        form = VolunteerForm(request.POST)
+        form = EventsForm(request.POST)
         if form.is_valid():
             form.save()
     context = {'form':form}
