@@ -28,7 +28,51 @@ def send_email(recipient):
 
 
     subject = "ACB Update"
-    body = "Thank you so much for signing up! ACB appreciates you."
+    body = '''
+    <!DOCTYPE html>
+<html>
+<head>
+    <title>Thank You for Volunteering</title>
+</head>
+<body>
+    <p>
+        Dear [Volunteer's Name],
+    </p>
+    
+    <p>
+        We want to extend our heartfelt gratitude to you for signing up to be a volunteer at our upcoming <strong>[Event Name]</strong>. Your commitment to giving your time and energy to support our cause is truly inspiring, and we can't wait to work together to make this event a resounding success.
+    </p>
+
+    <p>
+        Your willingness to step up and lend a hand is invaluable to us, and it's people like you who make our mission possible. Your dedication to our cause is a testament to the power of community and the positive change that we can create when we come together.
+    </p>
+
+    <p><strong>Here's what you can expect next:</strong></p>
+    <ol>
+        <li><strong>Orientation:</strong> In the coming days, we will send you an orientation package that includes all the details you need to know about the event, your role, and any training or materials you may require.</li>
+        <li><strong>Team Assignments:</strong> You will be assigned to a dedicated team of fellow volunteers. This will be a fantastic opportunity to connect with like-minded individuals who share your passion for our cause.</li>
+        <li><strong>Upcoming Meetings:</strong> We will be organizing regular meetings to ensure that everyone is on the same page and feels prepared for the event. Your input and ideas are always welcome.</li>
+        <li><strong>Stay Informed:</strong> Keep an eye on your inbox and our social media channels for updates, news, and exciting announcements about the event.</li>
+    </ol>
+
+    <p>
+        Once again, thank you for joining us on this journey to make a positive impact. Your involvement means the world to us, and we can't wait to see the incredible contributions you'll bring to our cause.
+    </p>
+
+    <p>
+        If you have any questions or need further information before our orientation, please don't hesitate to contact us at <a href="mailto:[Email Address]">[Email Address]</a> or [Phone Number]. We're here to support you every step of the way.
+    </p>
+
+    <p>
+        Thank you for being an essential part of our team, and we look forward to meeting you in person at the <strong>[Event Name]</strong>!
+    </p>
+
+    <p>With gratitude,</p>
+    <p>[Your Name]<br>[Your Title]<br>[Organization Name]<br>[Contact Information]</p>
+</body>
+</html>
+
+    '''
     message = f"Subject: {subject}\n\n{body}"
 
 
