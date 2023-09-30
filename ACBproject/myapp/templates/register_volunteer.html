@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register volunteer</title>
-</head>
-<body>
-    <form action="" method="post">
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" id="button">
-    </form>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Volunteers</h1>
+    {% csrf_token %}
+    {{ form.as_p }}
+{% endblock %}
