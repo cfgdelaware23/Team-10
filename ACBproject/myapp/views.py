@@ -5,7 +5,14 @@ import smtplib, ssl
 
 # Create your views here.
 
-
+def run_email_script(request):
+    if request.method == 'POST':
+        # Call the function from script.py
+        message = send_email("juskeerat@gmail.com")
+        return JsonResponse({'status': 'success', 'message': message})
+    else:
+        return JsonResponse({'status': 'failed', 'message': 'Not a POST request'})
+    
 def index(request):
     return render(request, 'index.html')
 
@@ -76,8 +83,6 @@ def volunteer(request):
                 #     return HttpResponse("You are already registered for this event.")
                 
                 Registration.objects.create(volunteer=user, event=event)
-                email = volunteer.email
-                send_email(email, event)
                 return HttpResponse("Successfully applied for the event!")
             return HttpResponse("Volunteer information saved successfully!")
 

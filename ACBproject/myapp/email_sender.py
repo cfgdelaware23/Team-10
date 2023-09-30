@@ -24,4 +24,4 @@ def send_email(recipient):
     finally:
         server.quit()  
 
-send_email()
+
