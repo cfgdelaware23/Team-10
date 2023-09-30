@@ -30,6 +30,7 @@ def volunteer(request):
         form = VolunteerForm(request.POST)
         if form.is_valid():
             form.save()
+<<<<<<< Updated upstream
     context = {'form': form}
     return render(request, 'register_volunteer.html', context)
 def volunteer(request):
@@ -43,3 +44,10 @@ def volunteer(request):
     else:
         form = VolunteerForm()
     return render(request, 'register_volunteer.html', {'form': form})
+=======
+    context = {'form':form}
+    return render(request, 'register_volunteer.html', context)
+
+def home(request):
+    return render(request, 'homepage.html')
+>>>>>>> Stashed changes
