@@ -1,69 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Display events</title>
-</head>
-<body>
-    <h1>Event List</h1>
-    <table id = "json-table">
-        <thead>
-            <tr>
-                <th>Title</th>
-                <th>Day</th>
-                <th>Start Time</th>
-                <th>End Time</th>
-                <th>Account</th>
-                <th>Host</th>
-                <th>Moderator</th>
-                <th>Facilitator</th>
-                <th>Streamer</th>
-                <th>Broadcaster</th>
-                <th>Recurring</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for event in data %}
-            <tr>
-                <td>{{ event.title }}</td>
-                <td>{{ event.day }}</td>
-                <td>{{ event.start_time }}</td>
-                <td>{{ event.end_time }}</td>
-                <td>{{ event.account }}</td>
-                <td>{{ event.host }}</td>
-                <td>
-                    {% if event.moderator == None %}
-                        <button onclick="alert('No Moderator')">No Moderator</button>
-                    {% else %}
-                        {{ event.moderator }}
-                    {% endif %}
-                </td>
-                <td>
-                    {% if event.facilitator == None %}
-                        <button onclick="alert('No Facilitator')">No Facilitator</button>
-                    {% else %}
-                        {{ event.facilitator }}
-                    {% endif %}
-                </td>
-                <td>
-                    {% if event.streamer == None %}
-                        <button onclick="alert('No Streamer')">No Streamer</button>
-                    {% else %}
-                        {{ event.streamer }}
-                    {% endif %}
-                </td>
-                <td>
-                    {% if event.broadcaster == None %}
-                        <button onclick="alert('No Broadcaster')">No Broadcaster</button>
-                    {% else %}
-                        {{ event.broadcaster }}
-                    {% endif %}
-                </td>
-                <td>{{ event.recurring }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</body>
-</html>
+{% extends 'index.html' %}
+
+{% block content %}
+    <body>
+        <h1>Event List</h1>
+        <table id = "json-table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Day</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Account</th>
+                    <th>Host</th>
+                    <th>Moderator</th>
+                    <th>Facilitator</th>
+                    <th>Streamer</th>
+                    <th>Broadcaster</th>
+                    <th>Recurring</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for event in data %}
+                <tr>
+                    <td>{{ event.title }}</td>
+                    <td>{{ event.day }}</td>
+                    <td>{{ event.start_time }}</td>
+                    <td>{{ event.end_time }}</td>
+                    <td>{{ event.account }}</td>
+                    <td>{{ event.host }}</td>
+                    <td>
+                        {% if event.moderator == None %}
+                            <button onclick="alert('No Moderator')">No Moderator</button>
+                        {% else %}
+                            {{ event.moderator }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if event.facilitator == None %}
+                            <button onclick="alert('No Facilitator')">No Facilitator</button>
+                        {% else %}
+                            {{ event.facilitator }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if event.streamer == None %}
+                            <button onclick="alert('No Streamer')">No Streamer</button>
+                        {% else %}
+                            {{ event.streamer }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if event.broadcaster == None %}
+                            <button onclick="alert('No Broadcaster')">No Broadcaster</button>
+                        {% else %}
+                            {{ event.broadcaster }}
+                        {% endif %}
+                    </td>
+                    <td>{{ event.recurring }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </body>
+{% endblock %}
+
+
+
+
