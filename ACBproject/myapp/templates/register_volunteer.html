@@ -6,6 +6,10 @@
     <title>Register volunteer</title>
 </head>
 <body>
-    Register volunteer here
+    <form action="" method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" id="button">
+    </form>
 </body>
 </html>
