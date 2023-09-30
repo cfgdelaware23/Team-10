@@ -189,3 +189,27 @@
     margin: 0 auto; /* Add margin:auto to center the form horizontally */
     padding: 20px; /* Add some padding to center vertically */
 }
+
+/* Change color scheme to blue */
+#json-table th {
+    background: #0070A3; /* Change to blue color code */
+    color: #FFFFFF; /* Change to white text color */
+}
+
+#json-table td {
+    border: 1px solid #0070A3; /* Change to blue color code */
+    background: #E6F4F9; /* Change to a light blue background color */
+    color: #0070A3; /* Change to blue color code */
+}
+
+/* Center the table on the page */
+#json-table {
+    width: 100%; /* Make the table 100% width */
+    margin: 0 auto; /* Add margin:auto to center the table horizontally */
+    border-collapse: collapse; /* Collapse borders to avoid double borders */
+}
+
+#json-table th, #json-table td {
+    padding: 8px; /* Add padding for better spacing */
+    text-align: center; /* Center text horizontally within cells */
+}
