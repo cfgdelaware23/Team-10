@@ -7,7 +7,15 @@ def index(request):
     return render(request, 'index.html')
 
 def display_events(request):
-    return render(request, 'display_events.html')
+    # fetching details and saving in a dict
+    from django.core import serializers
+    data = serializers.serialize("python", Events.objects.all())
+
+    context = {
+        'data': data,
+    }
+
+    return render(request, 'display_events.html', context)
 
 def register_events(request):
     form = EventsForm()
