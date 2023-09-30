@@ -7,6 +7,7 @@ class VolunteerForm(ModelForm):
         fields = "__all__"
         widgets = {
             'day': DateInput(attrs={'type': 'date'}),
+            'time_slot': TimeInput(attrs={'type': 'time'}),
         }
 
 
