@@ -9,6 +9,7 @@ CHOICES = [
 ]
 class Volunteer(models.Model):
     name = models.CharField(default=None, max_length=255)
+    email = models.EmailField(default=None, max_length=255)
     day = models.DateField(default=None, max_length=255)
     roles = models.CharField(choices=CHOICES, default=None, max_length=255)
 
@@ -22,7 +23,15 @@ class Events(models.Model):
     start_time = models.TimeField(default=None)
     end_time = models.TimeField(default=None)
     title = models.CharField(default=None, max_length=255)
-    account = models.CharField(default=None, max_length=255)
+    account = models.CharField(default=None, max_length=255,
+                               choices=[('com', 'com'),
+                                        ('com2', 'com2'),
+                                        ('com3', 'com3'),
+                                        ('com4', 'com4'),
+                                        ('ch', 'ch'),
+                                        ('web ch', 'web ch'),
+                                        ('n/a', 'n/a'),
+                                        ])
     host = models.CharField(default=None, max_length=255)
     moderator = models.CharField(default=None, max_length=255, blank=True, null=True)
     facilitator = models.CharField(default=None, max_length=255, blank=True, null=True)
@@ -30,4 +39,4 @@ class Events(models.Model):
     broadcaster = models.CharField(default=None, max_length=255, blank=True, null=True)
 
     def __str__(self) -> str:
-        return f"title: {self.title}, day: {self.day}, time: {self.time}, account: {self.account}"
+        return f"title: {self.title}, account: {self.account}"

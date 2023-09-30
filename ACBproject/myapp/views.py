@@ -7,7 +7,8 @@ def index(request):
     return render(request, 'index.html')
 
 def display_events(request):
-    return render(request, 'display_events.html')
+    data = Events.objects.all()
+    return render(request, 'display_events.html', {'data':data})
 
 def register_events(request):
     form = EventsForm()
