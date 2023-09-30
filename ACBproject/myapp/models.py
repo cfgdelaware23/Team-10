@@ -1,6 +1,7 @@
 from django.db import models
 
 CHOICES = [
+    ('', 'Select Role'),
     ('Host', 'Host'),
     ('Moderator', 'Moderator'),
     ('Facilitator', 'Facilitator'),
@@ -15,7 +16,8 @@ class Events(models.Model):
     start_time = models.TimeField(default=None)
     end_time = models.TimeField(default=None)
     account = models.CharField(default=None, max_length=255,
-                               choices=[('com', 'com'),
+                               choices=[('', 'Select Account'),
+                                   ('com', 'com'),
                                         ('com2', 'com2'),
                                         ('com3', 'com3'),
                                         ('com4', 'com4'),
@@ -35,8 +37,11 @@ class Events(models.Model):
     recurring = models.BooleanField(default=None)
     type_of_event = models.CharField(default=None,
                                      max_length=255,
-                                     choices=[('social', 'social'),
-                                              ('educational', 'educational')]
+                                     
+                                     choices=[
+                                         ('', 'Select Type'),
+                                         ('Social', 'Social'),
+                                              ('Educational', 'Educational')]
                                      )
 
     def __str__(self) -> str:
