@@ -1,11 +1,52 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Display events</title>
 
-{% block content %}
-    <h1>Display Events</h1>
-    
-    <ul>
-        {% for event in events %}
-            <li>{{ event.name }} - {{ event.date }}</li>
+</head>
+<body>
+    Display events here
+    <h1>View the table</h1>
+    <a href=""><button>Fetch and refresh</button></a>
+    <br/>
+
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Event
+                </th>
+                <th>
+                    Title
+                </th>
+                <th>
+                    Start Time
+                </th>
+                <th>
+                    End Time
+                </th>
+            </tr>
+        </thead>
+        {% for instance in data %}
+        <tr>
+            <div class = "testButton">
+            <th>
+                {{instance.fields.title}}
+            </th>
+            <th>
+                {{instance.fields.start_time}}
+            </th>
+            <th>
+                {{instance.fields.start_time}}
+            </th>
+            </div>
+            <button class = "testButton">
+
+            </button>
+        </tr>
         {% endfor %}
-    </ul>
-{% endblock %}
+    </table>
+</body>
+</html>
