@@ -1,3 +1,4 @@
+
 from django.db import models
 from django.core.exceptions import ValidationError
 from django.utils import timezone
@@ -15,7 +16,6 @@ CHOICES = [
 class Events(models.Model):
     title = models.CharField(default=None, max_length=255)
     day = models.DateField(default=None)
-
     start_time = models.TimeField(default=None)
     end_time = models.TimeField(default=None)
     account = models.CharField(default=None, max_length=255,
