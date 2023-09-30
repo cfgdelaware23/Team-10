@@ -1,43 +1,21 @@
+import React from 'react';
 import './App.css';
-import volunteer from './volunteer.js';
-import './user.js';
-import admin from  './admin.js' ;
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
-
-import './App.css';
-import User from './user.js';
-
+import Members from './Members'; 
+import Home from './Home'; 
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-
-        <p>
-          Select Page
-        </p>
-
-       <Router>
-          {/* <Link to='/'>Select User Type</Link> */}
-          <Link to='/user'>General Member</Link>
+    <Router>
+      <div className="App">
+        <header className="App-header">
           <Routes>
-            <Route path='/user' element={<User/>} />
-            {/* <Route path='/about' element={<About/>} /> */}
+            <Route path='/' element={<Home />} />
+            <Route path='/members' element={<Members />} />
           </Routes>
-         {/* <Switch>
-           <Route path="/user"
-                component={user}/>
-            <Redirect to="/" />
-         </Switch> */}
-       </Router>
-
-      </header>
-    </div>
+        </header>
+      </div>
+    </Router>
   );
 }
 
