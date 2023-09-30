@@ -1,6 +1,6 @@
 {% extends 'index.html' %}
 {% block content %}
-    <h1>Create Event</h1>
+    <h1 class = "text-center">Create Event</h1>
     <form action="" method="post" class = "d-flex flex-column">
         {% csrf_token %}
         {{form.as_p}}

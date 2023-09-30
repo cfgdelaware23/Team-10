@@ -3,10 +3,18 @@ from django.db import models
 CHOICES = [
     ('Host', 'Host'),
     ('Moderator', 'Moderator'),
-    ('Facilitator', 'Facilitator'), 
-    ('Streamer', 'Streamer'), 
+    ('Facilitator', 'Facilitator'),
+    ('Streamer', 'Streamer'),
     ('Broadcaster', 'Broadcaster'),
 ]
+ACCOUNT_CHOICES = [('com', 'com'),
+                    ('com2', 'com2'),
+                    ('com3', 'com3'),
+                    ('com4', 'com4'),
+                    ('ch', 'ch'),
+                    ('web ch', 'web ch'),
+                    ('n/a', 'n/a'),
+                ]
 class Events(models.Model):
     title = models.CharField(default=None, max_length=255)
     day = models.DateField(default=None)
