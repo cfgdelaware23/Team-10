@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import VolunteerForm, EventsForm
 from .models import Events, Volunteer
 
@@ -19,10 +19,14 @@ def register_events(request):
     return render(request, 'register_events.html', context)
 
 def volunteer(request):
-    form = VolunteerForm()
     if request.method == 'POST':
         form = VolunteerForm(request.POST)
         if form.is_valid():
-            form.save()
-    context = {'form':form}
-    return render(request, 'register_volunteer.html', context)
+            volunteer = form.save(commit=False)
+            volunteer.days = ",".join(form.cleaned_data['days'])
+            volunteer.save()
+            return redirect('home') 
+    else:
+        form = VolunteerForm()
+
+    return render(request, 'register_volunteer.html', {'form': form})
