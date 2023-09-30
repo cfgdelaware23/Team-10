@@ -1,7 +1,10 @@
 {% extends 'index.html' %}
-
 {% block content %}
-    <h1>Volunteers</h1>
-    {% csrf_token %}
-    {{ form.as_p }}
+
+    <h1>Events</h1>
+    <div class = "d-flex flex-column ">
+        {% csrf_token %}
+        {{ form.as_p }}
+    </div>
+    <button type="submit">Submit</button>
 {% endblock %}
