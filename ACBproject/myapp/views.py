@@ -1,10 +1,19 @@
 from django.shortcuts import render, HttpResponse
 from .forms import VolunteerForm, EventsForm
 from .models import Events, Volunteer, Registration
+from .email_sender import send_email
+from django.http import JsonResponse
 
 # Create your views here.
 
-
+def run_email_script(request):
+    if request.method == 'POST':
+        # Call the function from script.py
+        message = send_email("juskeerat@gmail.com")
+        return JsonResponse({'status': 'success', 'message': message})
+    else:
+        return JsonResponse({'status': 'failed', 'message': 'Not a POST request'})
+    
 def index(request):
     return render(request, 'index.html')
 
