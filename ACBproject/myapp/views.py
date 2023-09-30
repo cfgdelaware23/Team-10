@@ -3,12 +3,16 @@ from .forms import VolunteerForm, EventsForm
 from .models import Events, Volunteer
 
 # Create your views here.
+
+
 def index(request):
     return render(request, 'index.html')
 
+
 def display_events(request):
     data = Events.objects.all()
-    return render(request, 'display_events.html', {'data':data})
+    return render(request, 'display_events.html', {'data': data})
+
 
 def register_events(request):
     form = EventsForm()
@@ -16,8 +20,9 @@ def register_events(request):
         form = EventsForm(request.POST)
         if form.is_valid():
             form.save()
-    context = {'form':form}
+    context = {'form': form}
     return render(request, 'register_events.html', context)
+
 
 def volunteer(request):
     form = VolunteerForm()
@@ -25,5 +30,5 @@ def volunteer(request):
         form = VolunteerForm(request.POST)
         if form.is_valid():
             form.save()
-    context = {'form':form}
+    context = {'form': form}
     return render(request, 'register_volunteer.html', context)
