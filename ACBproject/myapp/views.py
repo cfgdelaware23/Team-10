@@ -11,7 +11,7 @@ def index(request):
 
 def display_events(request):
     events = Events.objects.all()
-    return render(request, 'your_template.html', {'events': events})
+    return render(request, 'display_events.html', {'events': events})
 
 
 def register_events(request):
