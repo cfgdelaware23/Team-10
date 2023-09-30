@@ -11,14 +11,10 @@ CHOICES = [
     ('Broadcaster', 'Broadcaster'),
 ]
 
-# def validate_future_date(value):
-#     if value < timezone.now().date():
-#         raise ValidationError('Date cannot be in the past.')
 
 class Events(models.Model):
     title = models.CharField(default=None, max_length=255)
     day = models.DateField(default=None)
-    # day = models.DateTimeField(default=None, validators=[validate_future_date])
 
     start_time = models.TimeField(default=None)
     end_time = models.TimeField(default=None)
