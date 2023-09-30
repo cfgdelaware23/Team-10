@@ -48,7 +48,7 @@ class Events(models.Model):
                                      )
 
     def __str__(self) -> str:
-        return f"title: {self.title}, account: {self.account}"
+        return f"{self.title}"
 
 
 class Volunteer(models.Model):
@@ -58,7 +58,7 @@ class Volunteer(models.Model):
     roles = models.CharField(choices=CHOICES, default=None, max_length=255)
 
     def __str__(self) -> str:
-        return f"Name: {self.name}, roles: {self.roles}"
+        return f"{self.name}, {self.roles}"
 
 
 class Registration(models.Model):

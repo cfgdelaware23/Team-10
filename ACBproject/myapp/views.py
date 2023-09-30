@@ -87,7 +87,9 @@ def volunteer(request):
                 #     return HttpResponse("You are already registered for this event.")
 
                 Registration.objects.create(volunteer=user, event=event)
+                
                 return HttpResponse("Successfully applied for the event!")
+                # return render(request, 'confirm.html')
             return HttpResponse("Volunteer information saved successfully!")
 
     else:
