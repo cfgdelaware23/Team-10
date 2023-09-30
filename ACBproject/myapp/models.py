@@ -18,11 +18,10 @@ class Volunteer(models.Model):
 
 
 class Events(models.Model):
-    recurring = models.BooleanField(default=None)
+    title = models.CharField(default=None, max_length=255)
     day = models.DateField(default=None)
     start_time = models.TimeField(default=None)
     end_time = models.TimeField(default=None)
-    title = models.CharField(default=None, max_length=255)
     account = models.CharField(default=None, max_length=255,
                                choices=[('com', 'com'),
                                         ('com2', 'com2'),
@@ -37,6 +36,7 @@ class Events(models.Model):
     facilitator = models.CharField(default=None, max_length=255, blank=True, null=True)
     streamer = models.CharField(default=None, max_length=255, blank=True, null=True)
     broadcaster = models.CharField(default=None, max_length=255, blank=True, null=True)
+    recurring = models.BooleanField(default=None)
 
     def __str__(self) -> str:
         return f"title: {self.title}, account: {self.account}"

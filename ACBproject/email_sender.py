@@ -1,8 +1,7 @@
 import smtplib, ssl 
 
-def send_email():
+def send_email(recipient):
     sender_email = "acbcfg2023@gmail.com"
-    receiver_email = "juskeerat@gmail.com"
     password = "jive koth yflp zdqi"
     
     smtp_server = "smtp.gmail.com"
@@ -17,7 +16,7 @@ def send_email():
         server = smtplib.SMTP(smtp_server, port)
         server.starttls(context=context) 
         server.login(sender_email, password)  
-        server.sendmail(sender_email, receiver_email, message)
+        server.sendmail(sender_email, recipient, message)
 
         print("Email sent. ")
     except Exception as e:
