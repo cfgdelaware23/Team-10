@@ -8,6 +8,9 @@ function Home() {
       <nav>
         <Link to='/members'>General Member</Link>
       </nav>
+      <nav>
+        <Link to='/Display'>Display Page</Link>
+      </nav>
     </div>
   );
 }
