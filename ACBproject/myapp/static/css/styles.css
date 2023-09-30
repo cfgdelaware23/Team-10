@@ -2,7 +2,7 @@ body {
     background-color: #d1bce2; /* Use your desired background color */
     /* You can also set background images, gradients, or other properties here */
 }
-.header { 
+.header {
     color: #ac5cbe;
 }
 .form-style-3 label > span {
@@ -38,6 +38,8 @@ body {
     color: #0070A3; /* Change to blue color code */
     background: #E6F4F9; /* Change to a light blue background color */
     box-shadow: inset 1px 1px 4px #9455d8; /* Change shadow color */
+    width: 175px;
+    margin-left: 10px;
 }
 
 .form-style-3 input[type=submit],
@@ -103,4 +105,9 @@ body {
 
 .cute-navbar a:hover {
     color: #ddd; /* Slightly lighter text color on hover */
+}
+
+p {
+    display: flex;
+    justify-content: space-between;
 }
