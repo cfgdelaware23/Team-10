@@ -1,10 +1,15 @@
 {% extends 'index.html' %}
 
 {% block content %}
+
+<div class="jumbotron">
     <h1>Volunteers</h1>
     <form action="" method="post">
         {% csrf_token %}
         {{form.as_p}}
         <input type="submit" value="Submit" id="volunteer_button">
     </form>
+</div>
+
+
 {% endblock %}
