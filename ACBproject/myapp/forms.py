@@ -6,9 +6,10 @@ class VolunteerForm(ModelForm):
     class Meta:
         model = Volunteer
         fields = "__all__"
-        widgets = {
-            'day': DateInput(attrs={'type': 'date'}),
-        }
+        # widgets = {
+        #     'day': DateInput(attrs={'type': 'date'}),
+        #     'time_slot': TimeInput(attrs={'type': 'time'}),
+        # }
 
 
 class EventsForm(ModelForm):
@@ -21,5 +22,4 @@ class EventsForm(ModelForm):
             'start_time': TimeInput(attrs={'type': 'time', 'class': 'w-25 d-flex'}),
             'end_time': TimeInput(attrs={'type': 'time', 'class': 'w-25 d-flex'}),
             'account': forms.TextInput(attrs={'class': 'w-25 d-flex flex-row'}),
-
         }

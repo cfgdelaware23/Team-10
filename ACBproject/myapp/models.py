@@ -7,16 +7,6 @@ CHOICES = [
     ('Streamer', 'Streamer'), 
     ('Broadcaster', 'Broadcaster'),
 ]
-class Volunteer(models.Model):
-    name = models.CharField(default=None, max_length=255)
-    email = models.EmailField(default=None, max_length=255)
-    day = models.DateField(default=None, max_length=255)
-    roles = models.CharField(choices=CHOICES, default=None, max_length=255)
-
-    def __str__(self) -> str:
-        return f"Name: {self.name}, available day: {self.day}, roles: {self.roles}"
-
-
 class Events(models.Model):
     title = models.CharField(default=None, max_length=255)
     day = models.DateField(default=None)
@@ -40,3 +30,19 @@ class Events(models.Model):
 
     def __str__(self) -> str:
         return f"title: {self.title}, account: {self.account}"
+
+class Volunteer(models.Model):
+    name = models.CharField(default=None, max_length=255)
+    email = models.EmailField(default=None, max_length=255)
+    events = models.ManyToManyField(Events)
+    roles = models.CharField(choices=CHOICES, default=None, max_length=255)
+
+    def __str__(self) -> str:
+        return f"Name: {self.name}, roles: {self.roles}"
+
+class Registration(models.Model):
+    volunteer = models.ForeignKey(Volunteer, on_delete=models.CASCADE)
+    event = models.ForeignKey(Events, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.volunteer.name} registered for {self.event.day} - {self.event.host}"
