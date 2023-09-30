@@ -5,10 +5,10 @@ class VolunteerForm(ModelForm):
     class Meta:
         model = Volunteer
         fields = "__all__"
-        # widgets = {
-        #     'day': DateInput(attrs={'type': 'date'}),
-        #     'time_slot': TimeInput(attrs={'type': 'time'}),
-        # }
+        widgets = {
+            'day': DateInput(attrs={'type': 'date'}),
+            'time_slot': TimeInput(attrs={'type': 'time'}),
+        }
 
 
 class EventsForm(ModelForm):
